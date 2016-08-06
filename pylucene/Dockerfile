@@ -1,7 +1,7 @@
 FROM python:2
 
 RUN apt-get update \
-    && apt-get install -y ant default-jdk
+    && apt-get install -y --no-install-recommends ant default-jdk
 
 WORKDIR /usr/src/pylucene
 RUN curl http://www.apache.org/dist/lucene/pylucene/pylucene-4.10.1-1-src.tar.gz \
