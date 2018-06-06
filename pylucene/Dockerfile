@@ -1,5 +1,5 @@
 ARG VERSION=3.6
-FROM python:$VERSION-stretch
+FROM python:$VERSION
 
 RUN apt-get update \
     && apt-get install -y default-jdk ant
