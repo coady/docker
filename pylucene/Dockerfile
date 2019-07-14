@@ -4,6 +4,9 @@ FROM python:$VERSION
 RUN apt-get update \
     && apt-get install -y default-jdk ant
 
+WORKDIR /usr/lib/jvm/default-java/jre/lib
+RUN ln -s ../../lib amd64
+
 WORKDIR /usr/src/pylucene
 RUN curl https://www.apache.org/dist/lucene/pylucene/pylucene-7.7.1-src.tar.gz \
     | tar -xz --strip-components=1
