@@ -8,7 +8,7 @@ WORKDIR /usr/lib/jvm/default-java/jre/lib
 RUN ln -s ../../lib amd64
 
 WORKDIR /usr/src/pylucene
-RUN curl https://www.apache.org/dist/lucene/pylucene/pylucene-7.7.1-src.tar.gz \
+RUN curl https://www.apache.org/dist/lucene/pylucene/pylucene-8.1.1-src.tar.gz \
     | tar -xz --strip-components=1
 RUN cd jcc \
     && JCC_JDK=/usr/lib/jvm/default-java python setup.py install
