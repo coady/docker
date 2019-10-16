@@ -11,7 +11,7 @@ WORKDIR /usr/src/pylucene
 RUN curl https://www.apache.org/dist/lucene/pylucene/pylucene-8.1.1-src.tar.gz \
     | tar -xz --strip-components=1
 RUN cd jcc \
-    && JCC_JDK=/usr/lib/jvm/default-java python setup.py install
+    && NO_SHARED=1 JCC_JDK=/usr/lib/jvm/default-java python setup.py install
 RUN make all install JCC='python -m jcc' ANT=ant PYTHON=python NUM_FILES=8
 
 WORKDIR ..
