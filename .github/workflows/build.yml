@@ -22,5 +22,5 @@ jobs:
         tags: |
           coady/pylucene:latest
           coady/pylucene:8
-          coady/pylucene:8.9
-          coady/pylucene:8.9.0
+          coady/pylucene:8.11
+          coady/pylucene:8.11.0
