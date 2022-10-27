@@ -14,11 +14,14 @@ jobs:
       with:
         username: coady
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
+    - uses: docker/setup-qemu-action@v2
     - uses: docker/setup-buildx-action@v2
     - uses: docker/build-push-action@v3
       with:
         file: ./pylucene/Dockerfile
         push: true
+        build-args: VERSION=3.10
+        platforms: linux/amd64,linux/arm64
         tags: |
           coady/pylucene:latest
           coady/pylucene:9
