@@ -8,7 +8,7 @@ WORKDIR /usr/lib/jvm
 RUN ln -s default-java temurin
 
 WORKDIR /usr/src/pylucene
-RUN curl https://downloads.apache.org/lucene/pylucene/pylucene-9.4.1-src.tar.gz \
+RUN curl https://downloads.apache.org/lucene/pylucene/pylucene-9.6.0-src.tar.gz \
     | tar -xz --strip-components=1
 RUN cd jcc \
     && NO_SHARED=1 JCC_JDK=/usr/lib/jvm/temurin python setup.py install
