@@ -3,7 +3,7 @@ FROM python:$VERSION
 
 RUN apt-get update \
     && apt-get install -y default-jdk
-RUN pip install build
+RUN pip install build setuptools
 
 WORKDIR /usr/lib/jvm
 RUN ln -s default-java temurin
