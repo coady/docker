@@ -9,7 +9,7 @@ WORKDIR /usr/lib/jvm
 RUN ln -s default-java temurin
 
 WORKDIR /usr/src/pylucene
-RUN curl https://downloads.apache.org/lucene/pylucene/pylucene-10.0.0-src.tar.gz \
+RUN curl https://dist.apache.org/repos/dist/dev/lucene/pylucene/10.3.0-rc1/pylucene-10.3.0-src.tar.gz \
     | tar -xz --strip-components=1
 RUN cd jcc \
     && NO_SHARED=1 JCC_JDK=/usr/lib/jvm/temurin python -m build -nw \
