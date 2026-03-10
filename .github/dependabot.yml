@@ -5,3 +5,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      action-updates:
+        patterns: ["*"]
