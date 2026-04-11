@@ -1,5 +1,5 @@
 ARG VERSION=latest
-FROM python:$VERSION
+FROM python:$VERSION AS builder
 
 RUN apt-get update \
     && apt-get install -y default-jdk
@@ -16,5 +16,13 @@ RUN cd jcc \
     && pip install dist/*.whl
 RUN make all install JCC='python -m jcc' PYTHON=python NUM_FILES=16 MODERN_PACKAGING=true
 
-WORKDIR /usr/src
-RUN rm -rf pylucene
+FROM python:$VERSION
+
+RUN apt-get update \
+    && apt-get install -y default-jdk
+
+WORKDIR /usr/lib/jvm
+RUN ln -s default-java temurin
+
+WORKDIR /
+COPY --from=builder /usr/local/lib /usr/local/lib
