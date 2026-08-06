@@ -2,7 +2,7 @@ ARG VERSION=latest
 FROM python:$VERSION AS builder
 
 RUN apt-get update \
-    && apt-get install -y default-jdk
+    && apt-get install -y default-jdk-headless
 RUN pip install build setuptools
 
 WORKDIR /usr/lib/jvm
@@ -19,7 +19,7 @@ RUN make all install JCC='python -m jcc' PYTHON=python NUM_FILES=16 MODERN_PACKA
 FROM python:$VERSION
 
 RUN apt-get update \
-    && apt-get install -y default-jre
+    && apt-get install -y default-jre-headless
 
 WORKDIR /usr/lib/jvm
 RUN ln -s default-java temurin
